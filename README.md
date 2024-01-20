@@ -33,8 +33,11 @@ When asked for path of sql file enter the path (here for swiggy db it will be `.
 9. **Schedule Table:** Columns store atomic values, and each record is uniquely identified by the `ScheduleID`.
 
 ### For 2NF
+In all tables all values are dependent onlyon IDs of the tables which are uniques not partially dependent on any other attributre.
 
-In feedbacks table PassengerID could have been omitted for feedbacks meant for reservations but to make calculations less I stored PassesngerID also.
+### For 3NF
+In feedbacks table PassengerID could have been omitted for feedbacks meant for reservations but to make calculations less I stored PassesngerID also. Whenever there was many to many relationship I ensured to make seperate table to make it normalized. In Rest all tsbles 3NF has been achieved as there is no transitive dependency in any table.
+
 ## Writeup for swiggy 
 
 ### For 1NF
@@ -52,3 +55,7 @@ I stored favourite restaurants in seperate table to avoid multi valued field in 
    - Each column in a table has a unique name, and there are no duplicated column names. This is essential for identifying each attribute uniquely.
 
 ### For 2NF
+In all tables all values are dependent onlyon IDs of the tables which are uniques not partially dependent on any other attributre.
+
+### For 3NF
+All tables are in 3NF as there is no transitive dependency all attributes are only dependent on the main ID of the table. If there were some that were transitively dependent have been moved to seperate table like addresses. 
